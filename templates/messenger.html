@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messenger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="messenger-container">
+        <div class="sidebar">
+            <div class="user-profile">
+                <div class="user-info">
+                    <span>{{ current_user.username }}</span>
+                </div>
+                <button id="newChatBtn">New Chat</button>
+            </div>
+            
+            <div id="invitationsSection" class="invitations-section">
+                <h3>Pending Invitations</h3>
+                <div id="pendingInvitations"></div>
+            </div>
+
+            <div class="conversations-list" id="conversationsList"></div>
+        </div>
+
+        <div class="chat-area" id="chatArea">
+            <div class="chat-header" id="chatHeader"></div>
+            <div class="messages" id="messages"></div>
+            <div class="input-area">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button id="sendButton">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <div class="search-header">
+                <input type="text" id="searchInput" placeholder="Search users...">
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="searchResults"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='messenger.js') }}"></script>
+</body>
+</html>
+
