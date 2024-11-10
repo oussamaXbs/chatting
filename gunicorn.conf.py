@@ -1,4 +1,2 @@
-bind = "0.0.0.0:8000"
-workers = 4
-worker_class = "eventlet"
-timeout = 300
+bind = "0.0.0.0:5000"  # Listen on all network interfaces
+workers = 4            # Adjust the number of workers as needed
