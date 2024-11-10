@@ -273,6 +273,7 @@ def reject_invitation(connection_id):
         return jsonify({'status': 'success'})
     return jsonify({'status': 'error'})
 if __name__ == "__main__":
-    socket.run(app, allow_unsafe_werkzeug=True, debug=True)
+    socketio.run(app, host='0.0.0.0', port=8000, debug=True, server='eventlet')
+
 
 
