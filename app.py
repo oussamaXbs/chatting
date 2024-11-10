@@ -272,9 +272,7 @@ def reject_invitation(connection_id):
         db.session.commit()
         return jsonify({'status': 'success'})
     return jsonify({'status': 'error'})
+if __name__ == "__main__":
+    socket.run(app, allow_unsafe_werkzeug=True, debug=True)
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    socketio.run(app, debug=True)
 
